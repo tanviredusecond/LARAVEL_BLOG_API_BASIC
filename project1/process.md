@@ -44,3 +44,9 @@ and
 url starts with this
 
 localhost:8000/api/articles/
+
+
+now with the controller 
+make a controller
+
+=> php artisan make:controller ArticleController
