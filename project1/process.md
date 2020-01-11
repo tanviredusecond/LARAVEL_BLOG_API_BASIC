@@ -68,3 +68,58 @@ we handle it with the /app/Exception/handler.php file
 so they send the error in html format with render()
 
 function so we are going change the file to send a json response
+
+
+
+Authrntication function
+
+we extend the users table and add a column 'api_token'
+
+we do not edit the users file we only add another migration but we it will be an extension of the current user table
+
+    => php artisan make:migration --table=users adds_api_token_to_users_table
+
+add the api_token column
+
+now migrate it again
+
+now we create a registration end point 
+we will use Auth/RegistrationController.php
+
+to use its functionality
+we do not create any controller now
+
+we edit the Auth/RegisterController.php and add a 
+function name registered()
+
+        // there is a method generateToken()
+        /// ths generateToken is under the User class
+        /// because we call it from users
+        /// so we have to make it on the user model
+        /// go to the User.php and add the function
+        /// under class Authenticable
+        // and the str_random we cant use
+        // we use a different function from different 
+        // namespace
+        // and you may wondered where the regertered method is called
+        // it is called in the RegisterUser class when the auth is done
+        // previously it was not there but it was mentinoed
+        // in the class
+        // and when we write it it started to use it
+        // and the registed function will not be
+
+        function registered(Request $request,$user)
+
+        it will be just
+
+        function registered($request,$user)
+
+
+        and you have to increase the size of the api_token colum to 300
+
+
+
+
+        next login
+
+make an endpont for the registration

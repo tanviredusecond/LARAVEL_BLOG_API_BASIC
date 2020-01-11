@@ -70,4 +70,18 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+    /// this is where the custom function goes
+    /// name registered
+
+    protected function registered($request,$user)
+        // remember it will be just request
+        // if you see the  "RegistersUsers" you will find out
+        // that this method is called there at the end
+    {
+    $user->generateToken();
+
+    return response()->json(['data' => $user->toArray()], 201);
+}
 }
