@@ -50,3 +50,21 @@ now with the controller
 make a controller
 
 => php artisan make:controller ArticleController
+
+
+in the Route folder add all the route for the 
+
+and we put the logic under the controller
+
+
+but the problem is if anything wrong happen we get
+a html error message
+
+we are changing that
+
+
+we handle it with the /app/Exception/handler.php file
+
+so they send the error in html format with render()
+
+function so we are going change the file to send a json response
